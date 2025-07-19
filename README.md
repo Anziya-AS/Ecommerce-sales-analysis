@@ -26,7 +26,6 @@ The dataset includes:
 - Product categories  
 - Region, segment, and shipping details  
 
-📎 [Google Sheet Dataset](https://docs.google.com/spreadsheets/d/1zMoqDjJc9LD9g__K_7FchFot3f-sH-HU/edit?usp=sharing)
 
 ---
 
@@ -40,28 +39,6 @@ The dataset includes:
 
 ---
 
-## 🧠 Key DAX Measures (Power BI)
-
-```DAX
--- Total Revenue
-Total Sales = SUM('Sales'[Sales_Amount])
-
--- Average Order Value
-Average Order Value = AVERAGE('Sales'[Order_Value])
-
--- Returning Customers Count
-Returning Customers =
-CALCULATE(
-    DISTINCTCOUNT('Sales'[Customer_ID]),
-    'Sales'[IsReturning] = "Yes"
-)
-
--- Monthly Sales Trend
-Monthly Sales =
-CALCULATE(
-    SUM('Sales'[Sales_Amount]),
-    DATESMTD('Sales'[Order_Date])
-)
 
 
 
