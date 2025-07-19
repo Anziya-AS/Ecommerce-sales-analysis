@@ -1,51 +1,42 @@
-# 🛒 E-Commerce Sales Analysis
+# 🛒 Ecommerce Sales Analysis
 
-A complete end-to-end project using Python, SQL, Excel, and Power BI to analyze e-commerce retail data, identify key business insights, and visualize sales performance across various segments.
-
----
-
-## 📌 Objective
-
-This project aims to:
-- Analyze monthly revenue trends
-- Identify top-performing products and regions
-- Segment customers based on behavior
-- Visualize results in an interactive dashboard
+A business intelligence project analyzing an e-commerce dataset to uncover sales trends, customer behavior, and revenue insights using Power BI.
 
 ---
 
-## 🛠 Tools & Technologies
+## 🎯 Objective
 
-- **Python** – Data cleaning and exploratory analysis (Pandas, Seaborn, Matplotlib)
-- **SQL** – Business logic and aggregations (MySQL)
-- **Excel** – Data pre-processing and initial exploration
-- **Power BI** – Dashboard creation and KPIs
+To analyze ecommerce performance and assist in data-driven decision making by identifying key metrics like total sales, returning customers, and top-performing products & cities.
 
 ---
 
-## 📁 Project Structure
-ecommerce-sales-analysis/
-├── data/
-│ └── sales_data.csv
-├── notebooks/
-│ └── data_cleaning_analysis.ipynb
-├── sql/
-│ └── sales_queries.sql
-├── dashboard/
-│ ├── sales_dashboard.pbix
-│ └── sales_dashboard.pdf
-├── README.md
+## 🛠 Tools Used
 
+- **Power BI** – Dashboard development  
+- **Excel** – Data cleaning and transformation  
+- **DAX** – For custom measures and KPIs  
 
 ---
 
-## 📊 Key Insights
+## 📂 Dataset
 
-- 📈 **Revenue increased** by over 30% in Q4 compared to Q1.
-- 🛍️ **Laptops, Phones, and Tablets** made up 60% of total sales revenue.
-- 🌍 **Top-performing cities**: Mumbai, Bangalore, and Delhi.
-- 🧾 **Average order value** was highest in the Corporate segment.
-- 🧠 Returning customers accounted for 45% of total orders.
+The dataset includes:
+- Sales transactions  
+- Customer details  
+- Product categories  
+- Region, segment, and shipping details  
+
+📎 [Google Sheet Dataset](https://docs.google.com/spreadsheets/d/1zMoqDjJc9LD9g__K_7FchFot3f-sH-HU/edit?usp=sharing)
+
+---
+
+## 📌 Key Insights
+
+- 📈 **Revenue increased** by over 30% in Q4 compared to Q1  
+- 💻 **Laptops, Phones, and Tablets** made up 60% of total sales revenue  
+- 🌐 **Top-performing cities**: Mumbai, Bangalore, and Delhi  
+- 🧾 **Average order value** was highest in the Corporate segment  
+- 🔁 **Returning customers** accounted for 45% of total orders  
 
 ---
 
@@ -59,36 +50,19 @@ Total Sales = SUM('Sales'[Sales_Amount])
 Average Order Value = AVERAGE('Sales'[Order_Value])
 
 -- Returning Customers Count
-Returning Customers = 
+Returning Customers =
 CALCULATE(
     DISTINCTCOUNT('Sales'[Customer_ID]),
     'Sales'[IsReturning] = "Yes"
 )
 
 -- Monthly Sales Trend
-Monthly Sales = 
+Monthly Sales =
 CALCULATE(
     SUM('Sales'[Sales_Amount]),
-    ALLEXCEPT('Sales', 'Sales'[Month])
+    DATESMTD('Sales'[Order_Date])
 )
--- Total Sales
-SELECT SUM(Sales_Amount) AS Total_Sales FROM sales_data;
 
--- Top 5 Products
-SELECT Product, SUM(Sales_Amount) AS Revenue
-FROM sales_data
-GROUP BY Product
-ORDER BY Revenue DESC
-LIMIT 5;
-
--- Monthly Sales
-SELECT DATE_FORMAT(Order_Date, '%Y-%m') AS Month, SUM(Sales_Amount) AS Monthly_Sales
-FROM sales_data
-GROUP BY Month;
-## 📊 Dashboard
-
-Created in Power BI using slicers, cards, maps, and bar charts.  
-Includes KPIs for revenue, AOV, top products, and regions.
 
 
 
