@@ -68,10 +68,3 @@ CALCULATE(
 
 ---
 
-## 👩‍💻 Created By
-
-**Anziya A S**  
-🔍 Software Engineer & Data Analyst  
-📫 anziyaanzarr90@gmail.com  
-📍 Kerala, India  
-🔗 [GitHub Profile](https://github.com/Anziya-AS)
